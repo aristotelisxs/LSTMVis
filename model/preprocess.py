@@ -40,7 +40,7 @@ class Indexer:
         items = [(v, k) for k, v in self.d.items()]
         items.sort()
         for v, k in items:
-            print >>out, k, v
+            print(k, v, file=out)
         out.close()
         
 def get_data(args):
@@ -67,7 +67,7 @@ def get_data(args):
         print (words.shape, "shape of the word array before preprocessing")
         # Write output.
         f = h5py.File(outfile, "w")
-        size = words.shape[0] / (batchsize * seqlength)
+        size = int(words.shape[0] / (batchsize * seqlength))
         print (size, "number of blocks after conversion")
 
         original_index = numpy.array([i+1 for i, v in enumerate(words)])
