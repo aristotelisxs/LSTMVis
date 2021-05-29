@@ -42,7 +42,7 @@ class Indexer:
         items = [(v, k) for k, v in self.d.items()]
         items.sort()
         for v, k in items:
-            print >>out, k, v
+            print(k, v, file=out)
         out.close()
         
 def get_data(args):
